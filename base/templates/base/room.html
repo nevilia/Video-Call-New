@@ -1,0 +1,47 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <section id="room-name-wrapper">
+        <p>Room Name: <span id="room-name"></span></p>
+    </section>
+
+    <section id="video-streams">
+        <div class="video-container" id="user-container-1">
+            <div class="username-wrapper"><span class="user-name">My Name</span></div>
+            <div><video id="local-video" autoplay playsinline></video></div> 
+            
+        </div>
+
+    </section>
+
+    <section id="controls-wrapper">
+        <div class="icon-wrapper">
+            <img id="mic-btn" class="control-icon" src="{% static 'images/microphone.svg' %}" alt="Mic">
+        </div>
+        <div class="icon-wrapper">
+            <img id="camera-btn" class="control-icon" src="{% static 'images/video.svg' %}" alt="Camera">
+        </div>
+        <div class="icon-wrapper">
+            <img id="leave-btn" class="control-icon" src="{% static 'images/leave.svg' %}" alt="Leave">
+        </div>
+        <div class="icon-wrapper">
+            <img id="screen-btn" class="control-icon" src="{% static 'images/computer-screen.svg' %}" alt="Leave">
+        </div>
+
+    </section>
+
+    <section>
+        <div id="chat">
+            <h3>CHAT</h3>
+            <div id="messages">
+                <ul id="message-list"></ul>
+            </div>
+
+            <div><input type="text" id="msg"> <button id="btn-send-msg">Send Message</button></div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="{% static 'js/streams.js' %}"></script>
+</main>
+{% endblock content %}

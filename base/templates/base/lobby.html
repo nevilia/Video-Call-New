@@ -1,0 +1,45 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<main>
+
+    <section id="form-container">
+
+        <img id="logo" src="{% static 'images/chat-icon.png' %}" alt="">
+        <div>
+            <h1>Welcome to MyChat</h1>
+            <p>A group video calling application just for you!</p>
+        </div>
+        <form id="form">
+            <div>
+                <input type="text" name="room" placeholder="Enter a room name..." style="text-transform:uppercase;"/>
+            </div>
+
+            <div>
+                <input type="submit" id="btn-join" value="Join Stream"/>
+            </div>
+        </form>
+    </section>
+
+
+
+    <script type="text/javascript">
+        let form = document.getElementById('form')
+
+        let handleSubmit = async(e) => {
+            e.preventDefault();
+            // let room = e.target.room.value.toUpperCase()
+            // let response = await fetch(`/get_token/?channel=${room}`)
+            // let data = await response.json()
+
+            
+
+
+            window.open('/room/', '_self');
+        }
+
+        form.addEventListener('submit', handleSubmit)
+    </script>
+</main>
+
+{% endblock content %}
