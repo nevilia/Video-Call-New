@@ -14,6 +14,9 @@
             <div>
                 <input type="text" name="room" placeholder="Enter a room name..." style="text-transform:uppercase;"/>
             </div>
+            <div>
+                <input type="text" id="username" id="username" placeholder="Enter a username..." style="text-transform:uppercase;"/>
+            </div>
 
             <div>
                 <input type="submit" id="btn-join" value="Join Stream"/>
@@ -40,6 +43,8 @@
 
         form.addEventListener('submit', handleSubmit)
     </script>
+    <script type="text/javascript" src="{% static 'js/streams.js' %}"></script>
+
 </main>
 
 {% endblock content %}
