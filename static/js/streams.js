@@ -1,6 +1,6 @@
 console.log('In stream.js')
 
-var mapPeers
+var mapPeers = {};
 // var usernameInput = document.querySelector('#username');
 // var btnJoin = document.querySelector('#btn-join');
 // var username;
@@ -103,8 +103,8 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
         localVideo.srcObject = localStream;
         localVideo.muted = true;
 
-        var audioTracks = streams.getAudioTracks();
-        var videoTracks = streams.getVideoTracks();
+        var audioTracks = stream.getAudioTracks();
+        var videoTracks = stream.getVideoTracks();
 
         audioTracks[0].enable = true;
         videoTracks[0].enable = true;
@@ -284,26 +284,26 @@ function createVideo(peerUsername){
     remoteVideo.autoplay = true;
     remoteVideo.playsInline = true;
 
-    var videowrapper = document.createElement('div');
+    var videoWrapper = document.createElement('div');
 
-    videoContainer.appendChild(videowrapper);
-    videowrapper.appendChild(remoteVideo);
+    videoContainer.appendChild(videoWrapper);
+    videoWrapper.appendChild(remoteVideo);
     return remoteVideo;
 
 }
 
 function setOnTrack(peer, remoteVideo){
-    var remoteStream = new MediaStream;
+    var remoteStream = new MediaStream();
 
     remoteStream.srcObject = remoteStream;
 
-    peer.addEventListener('track', async(event => {
-        remoteStream.addTrack(event.track, remoteStream)
-    }));
+    peer.addEventListener('track', async (event) => {
+        remoteStream.addTrack(event.track, remoteStream);
+    });
 }
 
 function removeVideo(video){
-    var videowrapper = video.parentNode;
+    var videoWrapper = video.parentNode;
 
-    videowrapper.parentNode.removeChild(videowrapper);
+    videoWrapper.parentNode.removeChild(videoWrapper);
 }
